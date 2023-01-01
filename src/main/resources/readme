@@ -1,0 +1,99 @@
+//First get the installtion jar file by below command
+
+mvn clean install -DskipTests
+
+// install the docker hub
+
+//build the docker image by below command
+
+
+docker build --tag=isos-portal .
+
+//then run build command to run the container form image and expose outside
+
+
+docker run -p 8080:8080 isos-portal
+
+API and payload :
+Find all patient by below api.
+GET : http://localhost:8080/isos-portal/api/patients
+Find patient by id by below api.
+GET : http://localhost:8080/isos-portal/api/patient/1
+Delete all patient by below api.
+DELETE : http://localhost:8080/isos-portal/api/patients
+Delete patient by id by below api.
+DELETE : http://localhost:8080/isos-portal/api/patient/1
+
+
+Save patient by id by below api.
+POST : http://localhost:8080/isos-portal/api/patient/
+
+paylaod is : {
+              "firstname": "Gopal",
+               "lastName": "Gopal",
+               "gender": "Male"
+
+              }
+
+
+ Update patient by id by below api.
+ PUT : http://localhost:8080/isos-portal/api/patient/1
+
+ paylaod is : {
+               "firstname": "Gopal",
+                "address" : "Dubai",
+                "gender": "Male",
+
+               }
+
+
+
+
+Delete patient by id by below api.
+DELETE : http://localhost:8080/isos-portal/api/patient/1
+
+Find all doctor by below api.
+GET : http://localhost:8080/isos-portal/api/doctors
+Find all doctor by id below api.
+GET : http://localhost:8080/isos-portal/api/doctor/1
+
+Delete all doctor by below api.
+DELETE : http://localhost:8080/isos-portal/api/doctors
+Find all doctor by id below api.
+DELETE : http://localhost:8080/isos-portal/api/doctor/1
+
+
+
+Save Doctor by id by below api.
+POST : http://localhost:8080/isos-portal/api/doctor/
+
+paylaod is : {
+              "firstname": "Robert",
+               "lastName": "Rose",
+               "gender": "Male"
+
+              }
+
+
+ Update patient by id by below api.
+ PUT : http://localhost:8080/isos-portal/api/doctor/1
+
+ paylaod is : {
+               "firstname": "Robert",
+                "address" : "Dubai",
+                "gender": "Male",
+
+               }
+
+
+
+
+  Github set up and push and pull command
+
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/raogopal5/patientapp-isos23.git
+git push -u origin main
