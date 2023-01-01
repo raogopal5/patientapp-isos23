@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -60,7 +61,8 @@ public class PatientController {
     public ResponseEntity<Patient> updatePatient(@Validated @RequestBody Patient patient) throws ApiException {
         LOGGER.info("updatePatient started");
         Patient result = patientService.findById(patient.getId());
-        result.setLastName("Rao");
+        result.setLastName("james");
+        result.setConsultationDate(LocalDateTime.now());
         if(result ==null){
             throw new ApiException(ErrorCode.PATIENT_SAVE_ERROR_FOUND.getCode(),ErrorCode.PATIENT_SAVE_ERROR_FOUND.getMessage());
         }

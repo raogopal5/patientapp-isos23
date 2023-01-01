@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -63,6 +64,7 @@ public class DoctorController {
         LOGGER.info("saveDoctor started");
        Doctor result = doctorService.findById(doctor.getId());
         result.setLastName("Rao");
+        result.setCreatedDate(LocalDateTime.now());
         if(result ==null){
             throw new ApiException(ErrorCode.DOCTOR_SAVE_ERROR_FOUND.getCode(),ErrorCode.DOCTOR_SAVE_ERROR_FOUND.getMessage());
         }
