@@ -71,9 +71,9 @@ public class DoctorController {
     }
 
 
-    @DeleteMapping("/patient/{id}")
+    @DeleteMapping("/doctor/{id}")
     public ResponseEntity<HttpStatus> deleteDoctor(@Validated @PathVariable Long id) throws ApiException {
-        LOGGER.info("deletePatient started");
+        LOGGER.info("deleteDoctor started");
         try{
             doctorService.deleteById(id);
         }catch (Exception ex){
@@ -84,7 +84,7 @@ public class DoctorController {
 
     @DeleteMapping("/doctor")
     public ResponseEntity<HttpStatus> deleteAllDoctor() throws ApiException {
-        LOGGER.info("deletePatient started");
+        LOGGER.info("deleteAllDoctor started");
         try{
             doctorService.deleteAll();
         }catch (Exception ex){

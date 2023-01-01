@@ -2,10 +2,8 @@ package com.isos.isosportal.controller;
 
 import com.isos.isosportal.enums.ErrorCode;
 import com.isos.isosportal.exception.ApiException;
-import com.isos.isosportal.model.Doctor;
 import com.isos.isosportal.model.Patient;
 import com.isos.isosportal.service.PatientService;
-import com.isos.isosportal.service.impl.DoctorServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +25,7 @@ public class PatientController {
 
     @GetMapping("/patients")
     public ResponseEntity<List<Patient>> findAllPatient() throws ApiException {
-        LOGGER.info("findAllDoctor started");
+        LOGGER.info("findAllPatient started");
         List<Patient> result = patientService.findAll();
         if(result ==null){
             throw new ApiException(ErrorCode.PATIENT_ALL_NOT_FOUND.getCode(),ErrorCode.PATIENT_ALL_NOT_FOUND.getMessage());
@@ -52,7 +50,7 @@ public class PatientController {
         LOGGER.info("savePatient started");
         Patient result = patientService.save(patient);
         if(result ==null){
-            throw new ApiException(ErrorCode.DOCTOR_ALL_NOT_FOUND.getCode(),ErrorCode.DOCTOR_ALL_NOT_FOUND.getMessage());
+            throw new ApiException(ErrorCode.PATIENT_ALL_NOT_FOUND.getCode(),ErrorCode.PATIENT_ALL_NOT_FOUND.getMessage());
         }
 
         return new ResponseEntity<>(result, HttpStatus.OK);
